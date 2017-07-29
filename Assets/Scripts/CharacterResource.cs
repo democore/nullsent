@@ -31,6 +31,8 @@ public class CharacterResource : MonoBehaviour {
 
     CharacterMovemend2D charMovement;
 
+    ParticleSystem collectingSystem;
+
     public bool IsAlive
     {
         get
@@ -40,7 +42,9 @@ public class CharacterResource : MonoBehaviour {
     }
 
     // Use this for initialization
-    void Start () {
+    void Start ()
+    {
+        collectingSystem = GetComponentInChildren<ParticleSystem>();
         charMovement = GetComponent<CharacterMovemend2D>();
         source = GetComponent<AudioSource>();
         Lights.AddRange(GetComponentsInChildren<Light>());
@@ -59,6 +63,7 @@ public class CharacterResource : MonoBehaviour {
         if (!InLight)
         {
             //Resource -= curLost;
+            collectingSystem.Stop();
             if (charMovement.IsMoving)
                 resourceChange = curLost;
         }
@@ -82,6 +87,8 @@ public class CharacterResource : MonoBehaviour {
                             source.clip = PowerupSound;
                             source.Play();
                         }
+
+                        collectingSystem.Play();
 
                         //Stop from going into loop if it's empty
                         if (intensityToChange <= 0f)
