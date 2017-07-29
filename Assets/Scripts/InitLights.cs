@@ -15,6 +15,8 @@ public class InitLights : MonoBehaviour
             if (l.type != LightType.Spot)
                 continue;
 
+            l.gameObject.AddComponent<SpotLightThing>();
+
             BoxCollider col = l.gameObject.GetComponent<BoxCollider>();
             if(!col)
             {
@@ -34,4 +36,16 @@ public class InitLights : MonoBehaviour
 	void Update () {
 		
 	}
+
+    public static void ResetAllLights()
+    {
+        foreach (var l in GameObject.FindObjectsOfType<Light>())
+        {
+            if (l.type != LightType.Spot)
+                continue;
+
+            SpotLightThing s = l.GetComponent<SpotLightThing>();
+            l.intensity = s.InitialIntensity;
+        }
+    }
 }

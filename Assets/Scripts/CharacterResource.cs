@@ -14,6 +14,8 @@ public class CharacterResource : MonoBehaviour {
     public float RegenInLight = 0.3f;
     public bool InLight = false;
 
+    bool didDie = false;
+
     //Yuri's variables <3
     List<Light> LightsGhostIsIn = new List<Light>(); //list of lights the ghost is in 
                                                      //atm restricted to 1 light, but could change
@@ -22,8 +24,22 @@ public class CharacterResource : MonoBehaviour {
     public Vector3 startPos;
     public float respawnTime = 3f; //how long it takes for the player to respawn after dying
 
-	// Use this for initialization
-	void Start () {
+    public AudioClip DieSound;
+    public AudioClip PowerupSound;
+
+    AudioSource source;
+
+    public bool IsAlive
+    {
+        get
+        {
+            return Resource > 0f;
+        }
+    }
+
+    // Use this for initialization
+    void Start () {
+        source = GetComponent<AudioSource>();
         Lights.AddRange(GetComponentsInChildren<Light>());
         renderer = GetComponentInChildren<SpriteRenderer>();
         startPos = transform.position; 
@@ -55,6 +71,11 @@ public class CharacterResource : MonoBehaviour {
                     toDim.intensity = intensityToChange;
                     //Resource += curRegen;
                     resourceChange = curRegen;
+                    if(!source.isPlaying)
+                    {
+                        source.clip = PowerupSound;
+                        source.Play();
+                    }
                 }
                 else
                 {
@@ -68,7 +89,8 @@ public class CharacterResource : MonoBehaviour {
         if (Resource <= 0f)
         {
             //Resource = 0f;
-           StartCoroutine(playerDeath(respawnTime));
+            if(!didDie)
+                StartCoroutine(playerDeath(respawnTime));
         }
         if (Resource > MaxResource)
             Resource = MaxResource;
@@ -79,9 +101,16 @@ public class CharacterResource : MonoBehaviour {
 
     private IEnumerator playerDeath(float waittime)
     {
+        didDie = true;
+        source.clip = DieSound;
+        source.Play();
+
         yield return new WaitForSeconds(waittime);
         Resource = MaxResource;
         transform.position = startPos;
+
+        InitLights.ResetAllLights();
+        didDie = false;
     }
     private void OnTriggerEnter(Collider other)
     {

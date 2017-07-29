@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 143513073421847400}
   - component: {fileID: 114578261879690740}
   - component: {fileID: 114924611216358276}
+  - component: {fileID: 82901802827552418}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -118,7 +119,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1879090627607828}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.45, y: 1, z: -9.58}
+  m_LocalPosition: {x: -0.03, y: -0.01, z: -7.78}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4085558863719898}
@@ -180,6 +181,86 @@ AudioListener:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1879090627607828}
   m_Enabled: 1
+--- !u!82 &82901802827552418
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1114643943654982}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!92 &92364124694179246
 Behaviour:
   m_ObjectHideFlags: 1
@@ -306,6 +387,7 @@ MonoBehaviour:
   speed: 4.61
   Gravity: 0.3
   JumpPower: 0.2
+  JumpSound: {fileID: 8300000, guid: 605e2952d7108dd4cb1b12a9c9f8b7b4, type: 3}
 --- !u!114 &114924611216358276
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -321,6 +403,11 @@ MonoBehaviour:
   ResourceLostPerFrame: 0.1
   RegenInLight: 0.3
   InLight: 0
+  dimAmount: 0.5
+  startPos: {x: 0, y: 0, z: 0}
+  respawnTime: 3
+  DieSound: {fileID: 8300000, guid: 77a337e1cf6391a43abc4e4d961227e6, type: 3}
+  PowerupSound: {fileID: 8300000, guid: 6c861a95f231f9c448fe293bebb9e465, type: 3}
 --- !u!124 &124199916812324242
 Behaviour:
   m_ObjectHideFlags: 1
@@ -338,13 +425,13 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 2
+  m_Height: 2.3
   m_Radius: 0.2
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: -0.3, z: 0}
 --- !u!212 &212780822777900278
 SpriteRenderer:
   m_ObjectHideFlags: 1
