@@ -32,4 +32,9 @@ public class GhostVisual : MonoBehaviour {
     {
         SetAlpha(sRender.color.a);
     }
+
+    void Squeak()
+    {
+        AudioManager.Instance.PlayEffect("hide");
+    }
 }

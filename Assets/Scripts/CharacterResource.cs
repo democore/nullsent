@@ -24,11 +24,6 @@ public class CharacterResource : MonoBehaviour {
     public Vector3 startPos;
     public float respawnTime = 3f; //how long it takes for the player to respawn after dying
 
-    public AudioClip DieSound;
-    public AudioClip PowerupSound;
-
-    AudioSource source;
-
     CharacterMovemend2D charMovement;
 
     public bool IsAlive
@@ -42,11 +37,12 @@ public class CharacterResource : MonoBehaviour {
     // Use this for initialization
     void Start () {
         charMovement = GetComponent<CharacterMovemend2D>();
-        source = GetComponent<AudioSource>();
         Lights.AddRange(GetComponentsInChildren<Light>());
         renderer = GetComponentInChildren<SpriteRenderer>();
         startPos = transform.position; 
 	}
+
+    float soundDelay;
 	
 	// Update is called once per frame
 	void Update ()
@@ -77,10 +73,10 @@ public class CharacterResource : MonoBehaviour {
                         toDim.intensity = intensityToChange;
                         //Resource += curRegen;
                         resourceChange = curRegen;
-                        if (!source.isPlaying)
+                        if (float.IsNaN(soundDelay) || soundDelay <= Time.time)
                         {
-                            source.clip = PowerupSound;
-                            source.Play();
+                            AudioManager.Instance.PlayEffect("Powerup");
+                            soundDelay = Time.time + 1f;
                         }
 
                         //Stop from going into loop if it's empty
@@ -112,8 +108,7 @@ public class CharacterResource : MonoBehaviour {
     private IEnumerator playerDeath(float waittime)
     {
         didDie = true;
-        source.clip = DieSound;
-        source.Play();
+        AudioManager.Instance.PlayEffect("loose");
 
         yield return new WaitForSeconds(waittime);
         Resource = MaxResource;

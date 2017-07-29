@@ -20,10 +20,6 @@ public class CharacterMovemend2D : MonoBehaviour {
 
     bool wasGrounded = true;
 
-    public AudioClip JumpSound;
-
-    AudioSource source;
-
     CharacterResource resource;
 
     float curNotMovedTime = 0f;
@@ -46,7 +42,6 @@ public class CharacterMovemend2D : MonoBehaviour {
         animator = GetComponentInChildren<Animator>();
         visual = GetComponentInChildren<SpriteRenderer>();
         controller = GetComponent<CharacterController>();
-        source = GetComponent<AudioSource>();
     }
 	
 	// Update is called once per frame
@@ -65,9 +60,8 @@ public class CharacterMovemend2D : MonoBehaviour {
         if(Input.GetAxis("Jump") != 0f && controller.isGrounded)
         {
             gravity = JumpPower;
-            animator.SetTrigger("Jump");                    
-            source.clip = JumpSound;
-            source.Play();
+            animator.SetTrigger("Jump");
+            AudioManager.Instance.PlayEffect("jump");
         }
 
         if(gravity > 0.1f || gravity < -0.1f)
@@ -123,6 +117,7 @@ public class CharacterMovemend2D : MonoBehaviour {
             animator.SetTrigger("Land");
             animator.SetBool("Grounded", true);
             wasGrounded = true;
+            AudioManager.Instance.PlayEffect("land");
         }
     }
 }
