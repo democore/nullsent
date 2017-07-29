@@ -53,7 +53,7 @@ public class CharacterMovemend2D : MonoBehaviour {
         animator.SetFloat("MoveDir", horizontal);
 
         if (gravity < maxGravity)
-            maxGravity = maxGravity;
+            gravity = maxGravity;
         controller.Move(new Vector3(horizontal * speed * Time.deltaTime, gravity, 0f));
     }
 }
