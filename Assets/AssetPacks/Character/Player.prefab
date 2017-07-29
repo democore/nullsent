@@ -479,6 +479,25 @@ MonoBehaviour:
   Gravity: 0.3
   JumpPower: 0.2
   JumpSound: {fileID: 8300000, guid: 605e2952d7108dd4cb1b12a9c9f8b7b4, type: 3}
+  CameraDistance:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 2
+      value: 10
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  IsMoving: 0
 --- !u!114 &114909622135149204
 MonoBehaviour:
   m_ObjectHideFlags: 1
