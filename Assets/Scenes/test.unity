@@ -23121,6 +23121,29 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 4226412984654004, guid: 6c5d6684eb5f01a4c960a784eb10cd9a, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0.23
+      objectReference: {fileID: 0}
+    - target: {fileID: 4226412984654004, guid: 6c5d6684eb5f01a4c960a784eb10cd9a, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -0.057
+      objectReference: {fileID: 0}
+    - target: {fileID: 212425519562681814, guid: 6c5d6684eb5f01a4c960a784eb10cd9a,
+        type: 2}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212425519562681814, guid: 6c5d6684eb5f01a4c960a784eb10cd9a,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114578261879690740, guid: 6c5d6684eb5f01a4c960a784eb10cd9a,
+        type: 2}
+      propertyPath: CameraDistance.m_Curve.Array.data[1].value
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6c5d6684eb5f01a4c960a784eb10cd9a, type: 2}
   m_IsPrefabParent: 0
