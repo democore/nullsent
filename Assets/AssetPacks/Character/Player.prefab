@@ -334,7 +334,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 2
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9019608, g: 0.7294118, b: 0.8156863, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -427,7 +427,6 @@ MonoBehaviour:
   speed: 4.61
   Gravity: 0.3
   JumpPower: 0.2
-  JumpSound: {fileID: 8300000, guid: 605e2952d7108dd4cb1b12a9c9f8b7b4, type: 3}
   CameraDistance:
     serializedVersion: 2
     m_Curve:
