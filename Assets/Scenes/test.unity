@@ -2030,6 +2030,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e808628911b07c43834a351eb296231, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &229255905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 229255903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e22eed74381ad3a47b302be3d1aa8d43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SfxVolume: 1
+  MusicVolume: 1
+  CrossFadeDuration: 2.5
+  StartCache:
+  - {fileID: 8300000, guid: 174de1e59ce280d4690a6fd33f2e8e4b, type: 3}
+  - {fileID: 8300000, guid: 605e2952d7108dd4cb1b12a9c9f8b7b4, type: 3}
+  - {fileID: 8300000, guid: 77a337e1cf6391a43abc4e4d961227e6, type: 3}
+  - {fileID: 8300000, guid: 6c861a95f231f9c448fe293bebb9e465, type: 3}
+  - {fileID: 8300000, guid: 4e647cc733a4d9a448e2c891146b88ad, type: 3}
 --- !u!4 &234229466 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4188168272361646, guid: 64627a6bc58fb5f469bcbcd3bc623fe1,
