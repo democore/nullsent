@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class NewBehaviourScript : MonoBehaviour {
 
-	// Use this for initialization
+	// Use this for initialization hi bearcore
 	void Start () {
 		
 	}
