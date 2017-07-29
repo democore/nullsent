@@ -509,7 +509,7 @@ MonoBehaviour:
   ResourceLostPerFrame: 0.1
   RegenInLight: 0.3
   InLight: 0
-  dimAmount: 0.5
+  dimAmount: 0.1
   startPos: {x: 0, y: 0, z: 0}
   respawnTime: 3
   DieSound: {fileID: 8300000, guid: 77a337e1cf6391a43abc4e4d961227e6, type: 3}

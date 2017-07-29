@@ -29,6 +29,8 @@ public class CharacterResource : MonoBehaviour {
 
     AudioSource source;
 
+    CharacterMovemend2D charMovement;
+
     public bool IsAlive
     {
         get
@@ -39,6 +41,7 @@ public class CharacterResource : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        charMovement = GetComponent<CharacterMovemend2D>();
         source = GetComponent<AudioSource>();
         Lights.AddRange(GetComponentsInChildren<Light>());
         renderer = GetComponentInChildren<SpriteRenderer>();
@@ -56,30 +59,37 @@ public class CharacterResource : MonoBehaviour {
         if (!InLight)
         {
             //Resource -= curLost;
-            resourceChange = curLost;
+            if (charMovement.IsMoving)
+                resourceChange = curLost;
         }
         else
         {
             foreach (Light toDim in LightsGhostIsIn)
             {
                 float intensityToChange = toDim.intensity;
-                if (intensityToChange != 0f)
+                if (intensityToChange != 0f )
                 {
-                    //intensityToChange -= toDim.dimFactor; 
-                    //each light could have its own "dimming factor" so that dif lights could dim at dif speeds
-                    intensityToChange -= dimAmount;
-                    toDim.intensity = intensityToChange;
-                    //Resource += curRegen;
-                    resourceChange = curRegen;
-                    if(!source.isPlaying)
+                    if(Resource < MaxResource)
                     {
-                        source.clip = PowerupSound;
-                        source.Play();
+                        //intensityToChange -= toDim.dimFactor; 
+                        //each light could have its own "dimming factor" so that dif lights could dim at dif speeds
+                        intensityToChange -= dimAmount;
+                        toDim.intensity = intensityToChange;
+                        //Resource += curRegen;
+                        resourceChange = curRegen;
+                        if (!source.isPlaying)
+                        {
+                            source.clip = PowerupSound;
+                            source.Play();
+                        }
+
+                        //Stop from going into loop if it's empty
+                        if (intensityToChange <= 0f)
+                        {
+                            Destroy(toDim.GetComponent<Collider>());
+                            InLight = false;
+                        }
                     }
-                }
-                else
-                {
-                    resourceChange = curLost;
                 }
             }
         }

@@ -27,10 +27,21 @@ public class CharacterMovemend2D : MonoBehaviour {
     CharacterResource resource;
 
     float curNotMovedTime = 0f;
+
+    public AnimationCurve CameraDistance;
+
+    Camera cam;
+    float curCamDistance = 0f;
+    float defaultCamDistance = 0f;
+
+    public bool IsMoving = false;
     
     // Use this for initialization hi bearcore
     void Start ()
     {
+        cam = GetComponentInChildren<Camera>();
+        defaultCamDistance = cam.transform.localPosition.z;
+
         resource = GetComponent<CharacterResource>();
         animator = GetComponentInChildren<Animator>();
         visual = GetComponentInChildren<SpriteRenderer>();
@@ -61,14 +72,19 @@ public class CharacterMovemend2D : MonoBehaviour {
 
         if (horizontal != 0f)
         {
+            IsMoving = true;
             visual.flipX = horizontal < 0f;
-            
             animator.SetBool("Moving", true);
 
-            curNotMovedTime = 0f;
+            curNotMovedTime -= 10f * Time.deltaTime;
+            if (curNotMovedTime < 0f)
+                curNotMovedTime = 0f;
+            if (curNotMovedTime > CameraDistance.keys[1].time)
+                curNotMovedTime = CameraDistance.keys[1].time;
         }
         else
         {
+            IsMoving = false;
             animator.SetBool("Moving", false);
 
             curNotMovedTime += Time.deltaTime;
@@ -78,7 +94,12 @@ public class CharacterMovemend2D : MonoBehaviour {
         if (gravity < maxGravity)
             gravity = maxGravity;
 
-        controller.Move(new Vector3(horizontal * speed * Time.deltaTime, gravity, 0f));    
+        controller.Move(new Vector3(horizontal * speed * Time.deltaTime, gravity, 0f));
+
+        curCamDistance = CameraDistance.Evaluate(curNotMovedTime);
+        Vector3 newPos = cam.transform.localPosition;
+        newPos.z = defaultCamDistance - curCamDistance;
+        cam.transform.localPosition = newPos;
     }
 
     private void LateUpdate()
