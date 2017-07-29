@@ -70,14 +70,23 @@ public class CharacterMovemend2D : MonoBehaviour {
             source.Play();
         }
 
+        if(gravity > 0.1f || gravity < -0.1f)
+        {
+            curNotMovedTime -= 1f * Time.deltaTime;
+            if (curNotMovedTime < CameraDistance.keys[0].time)
+                curNotMovedTime = 0f;
+            if (curNotMovedTime > CameraDistance.keys[1].time)
+                curNotMovedTime = CameraDistance.keys[1].time;
+        }
+
         if (horizontal != 0f)
         {
             IsMoving = true;
             visual.flipX = horizontal < 0f;
             animator.SetBool("Moving", true);
 
-            curNotMovedTime -= 10f * Time.deltaTime;
-            if (curNotMovedTime < 0f)
+            curNotMovedTime -= 1f * Time.deltaTime;
+            if (curNotMovedTime < CameraDistance.keys[0].time)
                 curNotMovedTime = 0f;
             if (curNotMovedTime > CameraDistance.keys[1].time)
                 curNotMovedTime = CameraDistance.keys[1].time;
