@@ -36,7 +36,7 @@ public class CharacterResource : MonoBehaviour {
         if (Resource > MaxResource)
             Resource = MaxResource;
 
-        print(Resource);
+      //  print(Resource);
         setCharacterIntensity(Resource);
 	}
 

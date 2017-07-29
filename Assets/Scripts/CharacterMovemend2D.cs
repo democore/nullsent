@@ -29,18 +29,12 @@ public class CharacterMovemend2D : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-        float horizontal = Input.GetAxis("Horizontal");
+	void Update () {   
+        float horizontal = Input.GetAxis("Horizontal");       
 
         if (controller.isGrounded)
-        {
-            if (!wasGrounded) // This will only run on the frame that we land.
-            {
-                animator.SetTrigger("Land");
-            }
-
-            gravity = 0;
-            wasGrounded = true;           
+        {          
+            gravity = -0.01f;                       
         }            
         else
         {
@@ -50,8 +44,7 @@ public class CharacterMovemend2D : MonoBehaviour {
         if(Input.GetAxis("Jump") != 0f && controller.isGrounded)
         {
             gravity = JumpPower;
-            animator.SetTrigger("Jump");
-            wasGrounded = false;
+            animator.SetTrigger("Jump");                    
         }
 
         if (horizontal != 0f)
@@ -69,6 +62,21 @@ public class CharacterMovemend2D : MonoBehaviour {
         if (gravity < maxGravity)
             gravity = maxGravity;
 
-        controller.Move(new Vector3(horizontal * speed * Time.deltaTime, gravity, 0f));
+        controller.Move(new Vector3(horizontal * speed * Time.deltaTime, gravity, 0f));      
+    }
+
+    private void LateUpdate()
+    {
+        if (wasGrounded && !controller.isGrounded)
+        {
+            wasGrounded = false;
+            animator.SetBool("Grounded", false);
+        }
+        else if (!wasGrounded && controller.isGrounded) // This will only run on the frame that we land.
+        {
+            animator.SetTrigger("Land");
+            animator.SetBool("Grounded", true);
+            wasGrounded = true;
+        }
     }
 }
