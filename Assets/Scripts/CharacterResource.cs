@@ -19,11 +19,14 @@ public class CharacterResource : MonoBehaviour {
                                                      //atm restricted to 1 light, but could change
     public float dimAmount = 0.5f;  //how much the light the ghost is in dims every update
                                     //could be changed so that each light has its own amount it dims by
+    public Vector3 startPos;
+    public float respawnTime = 3f; //how long it takes for the player to respawn after dying
 
 	// Use this for initialization
 	void Start () {
         Lights.AddRange(GetComponentsInChildren<Light>());
         renderer = GetComponentInChildren<SpriteRenderer>();
+        startPos = transform.position; 
 	}
 	
 	// Update is called once per frame
@@ -62,8 +65,11 @@ public class CharacterResource : MonoBehaviour {
 
         Resource += resourceChange;
 
-        if (Resource < 0f)
-            Resource = 0f;
+        if (Resource <= 0f)
+        {
+            //Resource = 0f;
+           StartCoroutine(playerDeath(respawnTime));
+        }
         if (Resource > MaxResource)
             Resource = MaxResource;
 
@@ -71,6 +77,12 @@ public class CharacterResource : MonoBehaviour {
         setCharacterIntensity(Resource);
 	}
 
+    private IEnumerator playerDeath(float waittime)
+    {
+        yield return new WaitForSeconds(waittime);
+        Resource = MaxResource;
+        transform.position = startPos;
+    }
     private void OnTriggerEnter(Collider other)
     {
         Light l = other.GetComponent<Light>();
