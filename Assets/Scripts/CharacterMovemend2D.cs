@@ -19,23 +19,33 @@ public class CharacterMovemend2D : MonoBehaviour {
     public float JumpPower = 0.4f;
 
     bool wasGrounded = true;
+
+    public AudioClip JumpSound;
+
+    AudioSource source;
+
+    CharacterResource resource;
+
+    float curNotMovedTime = 0f;
     
     // Use this for initialization hi bearcore
     void Start ()
     {
+        resource = GetComponent<CharacterResource>();
         animator = GetComponentInChildren<Animator>();
         visual = GetComponentInChildren<SpriteRenderer>();
         controller = GetComponent<CharacterController>();
-	}
+        source = GetComponent<AudioSource>();
+    }
 	
 	// Update is called once per frame
 	void Update () {   
         float horizontal = Input.GetAxis("Horizontal");       
+        if (!resource.IsAlive)
+            horizontal = 0f;
 
         if (controller.isGrounded)
-        {          
-            gravity = -0.01f;                       
-        }            
+            gravity = -0.01f;
         else
         {
             gravity -= Gravity * Time.deltaTime;           
@@ -45,6 +55,8 @@ public class CharacterMovemend2D : MonoBehaviour {
         {
             gravity = JumpPower;
             animator.SetTrigger("Jump");                    
+            source.clip = JumpSound;
+            source.Play();
         }
 
         if (horizontal != 0f)
@@ -52,10 +64,14 @@ public class CharacterMovemend2D : MonoBehaviour {
             visual.flipX = horizontal < 0f;
             
             animator.SetBool("Moving", true);
+
+            curNotMovedTime = 0f;
         }
         else
         {
             animator.SetBool("Moving", false);
+
+            curNotMovedTime += Time.deltaTime;
         }
         animator.SetFloat("MoveDir", horizontal);
 
@@ -63,6 +79,9 @@ public class CharacterMovemend2D : MonoBehaviour {
             gravity = maxGravity;
 
         controller.Move(new Vector3(horizontal * speed * Time.deltaTime, gravity, 0f));      
+
+        print(gravity);
+        print(controller.isGrounded);
     }
 
     private void LateUpdate()
