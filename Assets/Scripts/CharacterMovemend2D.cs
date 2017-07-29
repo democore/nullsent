@@ -78,10 +78,7 @@ public class CharacterMovemend2D : MonoBehaviour {
         if (gravity < maxGravity)
             gravity = maxGravity;
 
-        controller.Move(new Vector3(horizontal * speed * Time.deltaTime, gravity, 0f));      
-
-        print(gravity);
-        print(controller.isGrounded);
+        controller.Move(new Vector3(horizontal * speed * Time.deltaTime, gravity, 0f));    
     }
 
     private void LateUpdate()
