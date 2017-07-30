@@ -51,7 +51,7 @@ public class CharacterResource : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        if(transform.position.y < -5f)
+        if(transform.position.y < -10f)
         {
             if (!didDie)
                 StartCoroutine(playerDeath(respawnTime));
