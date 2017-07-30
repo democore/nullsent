@@ -7,10 +7,16 @@ public class MainMenuButtons : MonoBehaviour {
 
     public GameObject OptionsMenuPrefab;
 
+    private void Start()
+    {
+        AudioManager.Instance.PlayMusic("MainMenu");
+    }
+
     public void NewGame()
     {
-        SceneManager.LoadScene(1);
         AudioManager.Instance.PlayEffect("beep");
+        AudioManager.Instance.PlayMusic("Ingame");
+        SceneManager.LoadScene(1);        
     }
 
     public void Options()
