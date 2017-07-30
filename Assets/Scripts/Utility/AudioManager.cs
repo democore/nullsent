@@ -235,11 +235,11 @@ public class AudioManager : Singleton<AudioManager>
     IEnumerator FadeToCoroutine(AudioSource audioSource, float FadeTime, float targetVolume)
     {
         float startVolume = audioSource.volume;
-        float startTime = Time.time;
+        float startTime = Time.unscaledTime;
 
-        while (Time.time <= startTime + FadeTime)
+        while (Time.unscaledTime <= startTime + FadeTime)
         {
-            float fraction = (Time.time - startTime) / FadeTime;
+            float fraction = (Time.unscaledTime - startTime) / FadeTime;
             audioSource.volume = Mathf.Lerp(startVolume, targetVolume, fraction);
             yield return null;
         }

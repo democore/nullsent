@@ -31,6 +31,8 @@ public class CharacterMovemend2D : MonoBehaviour {
     float defaultCamDistance = 0f;
 
     public bool IsMoving = false;
+
+    private GameObject mainMenuPrefab;
     
     // Use this for initialization hi bearcore
     void Start ()
@@ -42,11 +44,25 @@ public class CharacterMovemend2D : MonoBehaviour {
         animator = GetComponentInChildren<Animator>();
         visual = GetComponentInChildren<SpriteRenderer>();
         controller = GetComponent<CharacterController>();
+
+        mainMenuPrefab = Resources.Load<GameObject>("MainMenu");
     }
 	
 	// Update is called once per frame
 	void Update () {   
-        float horizontal = Input.GetAxis("Horizontal");       
+
+        if (InputManager.InMenu)
+        {
+            return;
+        }
+
+        float horizontal = Input.GetAxis("Horizontal");
+
+        if (InputManager.Horizontal != 0f)
+        {
+            horizontal = InputManager.Horizontal;       
+        }
+
         if (!resource.IsAlive)
             horizontal = 0f;
 
@@ -55,9 +71,9 @@ public class CharacterMovemend2D : MonoBehaviour {
         else
         {
             gravity -= Gravity * Time.deltaTime;           
-        }           
+        }
 
-        if(Input.GetAxis("Jump") != 0f && controller.isGrounded)
+        if((Input.GetAxis("Jump") != 0f || InputManager.Jump) && controller.isGrounded)
         {
             gravity = JumpPower;
             animator.SetTrigger("Jump");
@@ -110,6 +126,11 @@ public class CharacterMovemend2D : MonoBehaviour {
         Vector3 newPos = cam.transform.localPosition;
         newPos.z = defaultCamDistance - curCamDistance;
         cam.transform.localPosition = newPos;
+
+        if (Input.GetKey(KeyCode.Tab))
+        {
+            Instantiate(mainMenuPrefab);
+        }
     }
 
     private void LateUpdate()
