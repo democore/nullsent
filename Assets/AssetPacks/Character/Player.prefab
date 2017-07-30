@@ -233,7 +233,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1114643943654982}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -15.19, y: 0, z: -0.42}
+  m_LocalPosition: {x: -15.19, y: 0, z: 0.18}
   m_LocalScale: {x: 0.56220734, y: 0.56220734, z: 0.56220734}
   m_Children:
   - {fileID: 4905449353594772}
@@ -602,14 +602,20 @@ MonoBehaviour:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 2
+      time: 0
+      value: 10
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
       time: 1
-      value: 0
+      value: 10
       inSlope: 0
       outSlope: 0
       tangentMode: 0
     - serializedVersion: 2
       time: 2
-      value: 10
+      value: -5
       inSlope: 0
       outSlope: 0
       tangentMode: 0
