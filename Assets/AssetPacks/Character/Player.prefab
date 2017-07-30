@@ -648,7 +648,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Resource: 1
   ResourceLostPerFrame: 0.1
-  RegenInLight: 0.3
+  RegenInLight: 0.6
   InLight: 0
   dimAmount: 0.1
   startPos: {x: 0, y: 0, z: 0}
