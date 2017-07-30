@@ -108,12 +108,6 @@ NavMeshSettings:
     tileSize: 256
     accuratePlacement: 0
   m_NavMeshData: {fileID: 0}
---- !u!114 &110955652 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114754938430476790, guid: ed7a256f49b3a3c4098fb26ad5559043,
-    type: 2}
-  m_PrefabInternal: {fileID: 1216969095}
-  m_Script: {fileID: 11500000, guid: ad7e7b2d2cdb12047af42558577c15c8, type: 3}
 --- !u!1 &225136523
 GameObject:
   m_ObjectHideFlags: 0
@@ -215,8 +209,7 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 114078536110923646, guid: 92527c45e11428645baf11308a51c623, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 92527c45e11428645baf11308a51c623, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &631484454
@@ -315,11 +308,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114124286692081852, guid: ed7a256f49b3a3c4098fb26ad5559043,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 224717832708511200, guid: ed7a256f49b3a3c4098fb26ad5559043,
         type: 2}
       propertyPath: m_LocalPosition.x
@@ -408,36 +396,6 @@ Prefab:
     - target: {fileID: 224717832708511200, guid: ed7a256f49b3a3c4098fb26ad5559043,
         type: 2}
       propertyPath: m_Pivot.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114124286692081852, guid: ed7a256f49b3a3c4098fb26ad5559043,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114124286692081852, guid: ed7a256f49b3a3c4098fb26ad5559043,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114124286692081852, guid: ed7a256f49b3a3c4098fb26ad5559043,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 110955652}
-    - target: {fileID: 114124286692081852, guid: ed7a256f49b3a3c4098fb26ad5559043,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: NewGame
-      objectReference: {fileID: 0}
-    - target: {fileID: 114124286692081852, guid: ed7a256f49b3a3c4098fb26ad5559043,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 114552083138050264, guid: ed7a256f49b3a3c4098fb26ad5559043,
-        type: 2}
-      propertyPath: m_Interactable
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

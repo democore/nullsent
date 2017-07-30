@@ -167,6 +167,7 @@ GameObject:
   m_Component:
   - component: {fileID: 224403119179096804}
   - component: {fileID: 114380031724101594}
+  - component: {fileID: 114706237664884834}
   m_Layer: 5
   m_Name: Slider
   m_TagString: Untagged
@@ -264,6 +265,7 @@ GameObject:
   m_Component:
   - component: {fileID: 224215920983877668}
   - component: {fileID: 114330412286725706}
+  - component: {fileID: 114395254002520442}
   m_Layer: 5
   m_Name: Slider
   m_TagString: Untagged
@@ -299,6 +301,7 @@ GameObject:
   - component: {fileID: 222920136570218500}
   - component: {fileID: 114710772960503450}
   - component: {fileID: 114796992070433400}
+  - component: {fileID: 114014717848951346}
   m_Layer: 5
   m_Name: Back
   m_TagString: Untagged
@@ -355,6 +358,17 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &114014717848951346
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1668534881138126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58719e8514f21f94084a4e56696746e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114024243581832188
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -603,6 +617,17 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114395254002520442
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1642244678747638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58719e8514f21f94084a4e56696746e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114398542727459450
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -690,6 +715,17 @@ MonoBehaviour:
     m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: Sound Effects
+--- !u!114 &114706237664884834
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1502800157139516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58719e8514f21f94084a4e56696746e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114710772960503450
 MonoBehaviour:
   m_ObjectHideFlags: 1

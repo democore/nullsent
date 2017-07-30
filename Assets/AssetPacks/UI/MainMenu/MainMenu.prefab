@@ -57,6 +57,7 @@ GameObject:
   - component: {fileID: 222986680127952136}
   - component: {fileID: 114124286692081852}
   - component: {fileID: 114307847730310170}
+  - component: {fileID: 114491945412998478}
   m_Layer: 5
   m_Name: New Game
   m_TagString: Untagged
@@ -75,6 +76,7 @@ GameObject:
   - component: {fileID: 222187798371886840}
   - component: {fileID: 114166385380873484}
   - component: {fileID: 114942580056085744}
+  - component: {fileID: 114011905966427454}
   m_Layer: 5
   m_Name: Options
   m_TagString: Untagged
@@ -128,6 +130,7 @@ GameObject:
   - component: {fileID: 222180836796976532}
   - component: {fileID: 114565626014678256}
   - component: {fileID: 114213774923946114}
+  - component: {fileID: 114904572341030792}
   m_Layer: 5
   m_Name: Exit
   m_TagString: Untagged
@@ -266,6 +269,7 @@ GameObject:
   - component: {fileID: 222929967355043750}
   - component: {fileID: 114552083138050264}
   - component: {fileID: 114074060459841648}
+  - component: {fileID: 114774948566397328}
   m_Layer: 5
   m_Name: Continue
   m_TagString: Untagged
@@ -402,6 +406,17 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114011905966427454
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1153767475040986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58719e8514f21f94084a4e56696746e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114074060459841648
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -513,7 +528,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 114307847730310170}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114754938430476790}
+        m_MethodName: NewGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114143002584841312
@@ -697,7 +723,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Exit
+  m_Text: Exit to desktop
 --- !u!114 &114243108522383788
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -893,6 +919,17 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114491945412998478
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1117679527959398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58719e8514f21f94084a4e56696746e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114530964546707842
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -954,7 +991,7 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 114074060459841648}
   m_OnClick:
     m_PersistentCalls:
@@ -1059,6 +1096,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OptionsMenuPrefab: {fileID: 1614044952985106, guid: f08a0d8d1fef25549a1cc5d275250ecc,
     type: 2}
+--- !u!114 &114774948566397328
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1788325593947160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58719e8514f21f94084a4e56696746e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114904572341030792
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1277168149733786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58719e8514f21f94084a4e56696746e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114942580056085744
 MonoBehaviour:
   m_ObjectHideFlags: 1

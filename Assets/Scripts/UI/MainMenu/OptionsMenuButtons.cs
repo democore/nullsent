@@ -19,11 +19,13 @@ public class OptionsMenuButtons : MonoBehaviour {
     {
         Instantiate(MainMenuPrefab);
         Destroy(gameObject);
+        AudioManager.Instance.PlayEffect("beep");
     }
 
     public void SetSFXVolume(float volume)
-    {
+    {  
         AudioManager.Instance.SetSFXVolume(volume);
+        AudioManager.Instance.PlayEffect("beep");
     }
 
     public void SetMusicVolume(float volume)

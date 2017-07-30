@@ -10,16 +10,19 @@ public class MainMenuButtons : MonoBehaviour {
     public void NewGame()
     {
         SceneManager.LoadScene(1);
+        AudioManager.Instance.PlayEffect("beep");
     }
 
     public void Options()
     {
         Instantiate(OptionsMenuPrefab);
         Destroy(gameObject.transform.parent.gameObject);
+        AudioManager.Instance.PlayEffect("beep");
     }
 
 	public void Exit()
     {
         Application.Quit();
+        AudioManager.Instance.PlayEffect("beep");
     }
 }
