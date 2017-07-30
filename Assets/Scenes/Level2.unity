@@ -13169,6 +13169,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114578261879690740, guid: 6c5d6684eb5f01a4c960a784eb10cd9a,
+        type: 2}
+      propertyPath: CameraDistance.m_Curve.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4085558863719898, guid: 6c5d6684eb5f01a4c960a784eb10cd9a, type: 2}
       propertyPath: m_LocalPosition.x
       value: -15.19
@@ -13200,6 +13205,31 @@ Prefab:
     - target: {fileID: 4085558863719898, guid: 6c5d6684eb5f01a4c960a784eb10cd9a, type: 2}
       propertyPath: m_RootOrder
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 114578261879690740, guid: 6c5d6684eb5f01a4c960a784eb10cd9a,
+        type: 2}
+      propertyPath: CameraDistance.m_Curve.Array.data[0].time
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114578261879690740, guid: 6c5d6684eb5f01a4c960a784eb10cd9a,
+        type: 2}
+      propertyPath: CameraDistance.m_Curve.Array.data[1].time
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114578261879690740, guid: 6c5d6684eb5f01a4c960a784eb10cd9a,
+        type: 2}
+      propertyPath: CameraDistance.m_Curve.Array.data[1].value
+      value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114578261879690740, guid: 6c5d6684eb5f01a4c960a784eb10cd9a,
+        type: 2}
+      propertyPath: CameraDistance.m_Curve.Array.data[2].time
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114578261879690740, guid: 6c5d6684eb5f01a4c960a784eb10cd9a,
+        type: 2}
+      propertyPath: CameraDistance.m_Curve.Array.data[2].value
+      value: -5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6c5d6684eb5f01a4c960a784eb10cd9a, type: 2}

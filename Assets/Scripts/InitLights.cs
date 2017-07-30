@@ -24,7 +24,7 @@ public class InitLights : MonoBehaviour
             if (!col)
             {
                 col = l.gameObject.AddComponent<BoxCollider>();
-                col.size = new Vector3(1f, 1f, l.range / 2);
+                col.size = new Vector3(1f, 1f, l.range / 1.3f);
                 col.center = new Vector3(0f, 0f, l.range / 2f);
             }
             col.isTrigger = true;

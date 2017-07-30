@@ -66,7 +66,7 @@ public class CharacterMovemend2D : MonoBehaviour {
 
         if(gravity > 0.1f || gravity < -0.1f)
         {
-            curNotMovedTime -= 1f * Time.deltaTime;
+            curNotMovedTime -= Time.deltaTime;
             if (curNotMovedTime < CameraDistance.keys[0].time)
                 curNotMovedTime = 0f;
             if (curNotMovedTime > CameraDistance.keys[1].time)
@@ -79,9 +79,9 @@ public class CharacterMovemend2D : MonoBehaviour {
             visual.flipX = horizontal < 0f;
             animator.SetBool("Moving", true);
 
-            curNotMovedTime -= 1f * Time.deltaTime;
+            curNotMovedTime -= Time.deltaTime;
             if (curNotMovedTime < CameraDistance.keys[0].time)
-                curNotMovedTime = 0f;
+                curNotMovedTime = CameraDistance.keys[0].time;
             if (curNotMovedTime > CameraDistance.keys[1].time)
                 curNotMovedTime = CameraDistance.keys[1].time;
         }
@@ -91,6 +91,10 @@ public class CharacterMovemend2D : MonoBehaviour {
             animator.SetBool("Moving", false);
 
             curNotMovedTime += Time.deltaTime;
+            if (curNotMovedTime < CameraDistance.keys[0].time)
+                curNotMovedTime = CameraDistance.keys[0].time;
+            if (curNotMovedTime > CameraDistance.keys[1].time)
+                curNotMovedTime = CameraDistance.keys[1].time;
         }
         animator.SetFloat("MoveDir", horizontal);
 
