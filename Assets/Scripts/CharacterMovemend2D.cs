@@ -14,7 +14,7 @@ public class CharacterMovemend2D : MonoBehaviour {
 
     float gravity = 0f;
     public float Gravity = 2f;
-    float maxGravity = -0.2f;
+    float maxGravity = -0.5f;
 
     public float JumpPower = 0.4f;
 

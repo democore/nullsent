@@ -51,6 +51,12 @@ public class CharacterResource : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
+        if(transform.position.y < -5f)
+        {
+            if (!didDie)
+                StartCoroutine(playerDeath(respawnTime));
+        }
+
         //float curLost = Time.deltaTime * ResourceLostPerFrame;
         float curLost = -1f * Time.deltaTime * ResourceLostPerFrame;
         float curRegen = RegenInLight * Time.deltaTime;
