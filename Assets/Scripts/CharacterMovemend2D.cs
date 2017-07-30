@@ -90,11 +90,14 @@ public class CharacterMovemend2D : MonoBehaviour {
             IsMoving = false;
             animator.SetBool("Moving", false);
 
-            curNotMovedTime += Time.deltaTime;
-            if (curNotMovedTime < CameraDistance.keys[0].time)
-                curNotMovedTime = CameraDistance.keys[0].time;
-            if (curNotMovedTime > CameraDistance.keys[1].time)
-                curNotMovedTime = CameraDistance.keys[1].time;
+            if(!resource.InLight)
+            {
+                curNotMovedTime += Time.deltaTime;
+                if (curNotMovedTime < CameraDistance.keys[0].time)
+                    curNotMovedTime = CameraDistance.keys[0].time;
+                if (curNotMovedTime > CameraDistance.keys[1].time)
+                    curNotMovedTime = CameraDistance.keys[1].time;
+            }
         }
         animator.SetFloat("MoveDir", horizontal);
 
