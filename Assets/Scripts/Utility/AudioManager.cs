@@ -45,6 +45,9 @@ public class AudioManager : Singleton<AudioManager>
             audioCache[clip.name] = clip;
         }
 
+        MusicVolume = PlayerPrefs.GetFloat("MusicVolume", 1f);
+        SfxVolume = PlayerPrefs.GetFloat("SFXVolume", 1f);
+
         // Example code to cache Audio files at the start of the game
         //GetClip("Music/Combat");
         //GetClip("SFX/UI/mouse_over");
@@ -194,6 +197,11 @@ public class AudioManager : Singleton<AudioManager>
             sfxSource.volume = volume;
         }
         SfxVolume = volume;
+
+        Debug.Log("SFX" + volume);
+
+        PlayerPrefs.SetFloat("SFXVolume", volume);
+        PlayerPrefs.Save();
     }
 
     /// <summary>
@@ -204,6 +212,11 @@ public class AudioManager : Singleton<AudioManager>
     {
         musicSource.volume = volume;
         MusicVolume = volume;
+
+        Debug.Log("Music" + volume);
+
+        PlayerPrefs.SetFloat("MusicVolume", volume);
+        PlayerPrefs.Save();
     }
 
     /// <summary>
